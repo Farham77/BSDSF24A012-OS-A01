@@ -46,3 +46,15 @@ The static client contains the required utility function code copied from `libmy
 ## LD_LIBRARY_PATH
 
 `LD_LIBRARY_PATH` is an environment variable containing directories that the Linux dynamic loader searches for shared libraries. It was necessary because `libmyutils.so` is in the project's `lib/` directory, which is not one of the loader's default search locations. Exporting the directory allowed the loader to resolve the dependency before starting the program. This shows that the loader is responsible for locating and mapping shared libraries at runtime, while the application or its launch environment must provide a discoverable library path.
+
+# Documentation and Installation Report
+
+## Man Page Structure
+
+The project provides one section-3 groff man page for each public library function: `mystrlen`, `mystrcpy`, `mystrncpy`, `mystrcat`, `wordCount`, and `mygrep`. Each page uses `.TH` for its title header and `.SH` sections for `NAME`, `SYNOPSIS`, `DESCRIPTION`, and `AUTHOR`. Section 3 is appropriate because these pages document library functions rather than shell commands.
+
+## Installation Target
+
+The Makefile `install` target builds the dynamic client, creates the required system directories, installs the executable as `/usr/local/bin/client`, installs `libmyutils.so` in `/usr/local/lib`, and installs the manuals in `/usr/local/share/man/man3`. It runs `ldconfig` so the system dynamic loader can find the installed shared library. The target requires administrator privileges because it writes to system directories, so it is run with `sudo make install`.
+
+After installation, `client` can be run from any working directory because `/usr/local/bin` is on the normal command search path. The manuals can be viewed with commands such as `man mystrlen` because `/usr/local/share/man` is a standard manual search directory.
