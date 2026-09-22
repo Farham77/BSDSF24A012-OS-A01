@@ -2,8 +2,9 @@ CC ?= gcc
 CFLAGS ?= -std=c11 -Wall -Wextra -pedantic -I../include
 OBJDIR ?= ../obj
 
-SOURCES := main.c mystrfunctions.c myfilefunctions.c
-OBJECTS := $(SOURCES:%.c=$(OBJDIR)/%.o)
+DRIVER_OBJECT := $(OBJDIR)/main.o
+LIBRARY_OBJECTS := $(OBJDIR)/mystrfunctions.o $(OBJDIR)/myfilefunctions.o
+OBJECTS := $(DRIVER_OBJECT) $(LIBRARY_OBJECTS)
 
 .PHONY: all clean
 
