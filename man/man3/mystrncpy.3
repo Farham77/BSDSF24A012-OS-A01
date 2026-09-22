@@ -1,0 +1,25 @@
+.TH MYSTRNCPY 3 "September 2026" "BSDSF24A012-OS-A01" "Library Functions"
+.SH NAME
+mystrncpy \- copy up to a specified number of characters
+.SH SYNOPSIS
+.B #include "mystrfunctions.h"
+.PP
+.B int mystrncpy(char *dest, const char *src, int n);
+.SH DESCRIPTION
+.B mystrncpy
+copies at most
+.I n
+characters from
+.I src
+to
+.IR dest .
+If the source ends before
+.IR n
+characters, a null terminator is written. The destination must have enough
+space for the requested characters and terminator when needed.
+.SH RETURN VALUE
+Returns 0 on success, or -1 if a pointer is NULL or
+.I n
+is negative.
+.SH AUTHOR
+Farham Ahmad <farhamahmad77@gmail.com>

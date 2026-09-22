@@ -1,0 +1,22 @@
+.TH WORDCOUNT 3 "September 2026" "BSDSF24A012-OS-A01" "Library Functions"
+.SH NAME
+wordCount \- count lines, words, and characters in a file
+.SH SYNOPSIS
+.B #include "myfilefunctions.h"
+.PP
+.B int wordCount(FILE *file, int *lines, int *words, int *chars);
+.SH DESCRIPTION
+.B wordCount
+reads
+.I file
+from its current position and stores the number of newline characters, words,
+and characters in the locations supplied by
+.IR lines ,
+.IR words ,
+and
+.IR chars .
+The file position is advanced to end-of-file.
+.SH RETURN VALUE
+Returns 0 on success, or -1 if an argument is NULL or a read error occurs.
+.SH AUTHOR
+Farham Ahmad <farhamahmad77@gmail.com>
