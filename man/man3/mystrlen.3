@@ -1,0 +1,18 @@
+.TH MYSTRLEN 3 "September 2026" "BSDSF24A012-OS-A01" "Library Functions"
+.SH NAME
+mystrlen \- calculate the length of a string
+.SH SYNOPSIS
+.B #include "mystrfunctions.h"
+.PP
+.B int mystrlen(const char *s);
+.SH DESCRIPTION
+.B mystrlen
+returns the number of characters in the null-terminated string
+.IR s ,
+excluding the terminating null character. It returns -1 when
+.IR s
+is NULL.
+.SH RETURN VALUE
+The string length on success, or -1 if the argument is NULL.
+.SH AUTHOR
+Farham Ahmad <farhamahmad77@gmail.com>

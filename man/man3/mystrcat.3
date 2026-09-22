@@ -1,0 +1,19 @@
+.TH MYSTRCAT 3 "September 2026" "BSDSF24A012-OS-A01" "Library Functions"
+.SH NAME
+mystrcat \- append one string to another
+.SH SYNOPSIS
+.B #include "mystrfunctions.h"
+.PP
+.B int mystrcat(char *dest, const char *src);
+.SH DESCRIPTION
+.B mystrcat
+appends the null-terminated string
+.I src
+to the end of
+.IR dest .
+The destination must have enough unused space for the appended string and its
+terminating null character.
+.SH RETURN VALUE
+Returns 0 on success, or -1 if either pointer is NULL.
+.SH AUTHOR
+Farham Ahmad <farhamahmad77@gmail.com>

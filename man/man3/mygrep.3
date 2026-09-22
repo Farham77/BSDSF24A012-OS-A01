@@ -1,0 +1,21 @@
+.TH MYGREP 3 "September 2026" "BSDSF24A012-OS-A01" "Library Functions"
+.SH NAME
+mygrep \- find lines containing a search string
+.SH SYNOPSIS
+.B #include "myfilefunctions.h"
+.PP
+.B int mygrep(FILE *fp, const char *search_str, char ***matches);
+.SH DESCRIPTION
+.B mygrep
+reads lines from
+.I fp
+and finds lines containing
+.IR search_str .
+It allocates an array of copied matching lines and stores its address in
+.IR matches .
+The caller is responsible for freeing every returned line and then the array.
+.SH RETURN VALUE
+Returns the number of matching lines, or -1 if an argument is NULL, allocation
+fails, or a read error occurs.
+.SH AUTHOR
+Farham Ahmad <farhamahmad77@gmail.com>
